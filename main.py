@@ -10,6 +10,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+# Twilio phone number and Phone number being sent message to 
+TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
+MY_PHONE_NUMBER = os.getenv("MY_PHONE_NUMBER")
+
+
 # The AMAZON URL for the item the user wants 
 URL = input("Please paste the URL of the item page: ")
 
@@ -46,8 +51,8 @@ if price_as_float <= target_price:
     message = client.messages \
                 .create(
                      body=f"BUY NOW the item you want is {price_as_float}",
-                     from_='+12564491625',
-                     to='+15128254626'
+                     from_='TWILIO_PHONE_NUMBER',
+                     to='MY_PHONE_NUMBER'
                  )
 
     print(message.status)
