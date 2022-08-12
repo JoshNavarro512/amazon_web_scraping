@@ -51,8 +51,8 @@ if price_as_float <= target_price:
     message = client.messages \
                 .create(
                      body=f"BUY NOW the item you want is {price_as_float}",
-                     from_='TWILIO_PHONE_NUMBER',
-                     to='MY_PHONE_NUMBER'
+                     from_= TWILIO_PHONE_NUMBER,
+                     to= MY_PHONE_NUMBER
                  )
 
     print(message.status)
